@@ -14,11 +14,12 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { NosServicesComponent } from './nos-services/nos-services.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { JoinUsComponent } from './join-us/join-us.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ServiceItemComponent } from './accueil/liste-service/service-item/service-item.component';
 import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
 import { ValeurComponent } from './about-us/valeur/valeur.component';
 import { OneServiceComponent } from './nos-services/one-service/one-service.component';
+import { ContactFormComponent } from './contact-us/contact-form/contact-form.component';
 
 @NgModule({
   declarations: [
@@ -38,8 +39,9 @@ import { OneServiceComponent } from './nos-services/one-service/one-service.comp
     ScrollToTopComponent,
     ValeurComponent,
     OneServiceComponent,
+    ContactFormComponent,
   ],
-  imports: [BrowserModule, FormsModule, AppRoutingModule],
+  imports: [BrowserModule, FormsModule, AppRoutingModule,ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
