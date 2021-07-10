@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 import { ServiceItemComponent } from './accueil/liste-service/service-item/service-item.component';
 import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
 import { ValeurComponent } from './about-us/valeur/valeur.component';
+import { OneServiceComponent } from './nos-services/one-service/one-service.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { ValeurComponent } from './about-us/valeur/valeur.component';
     ServiceItemComponent,
     ScrollToTopComponent,
     ValeurComponent,
+    OneServiceComponent,
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule],
   providers: [],

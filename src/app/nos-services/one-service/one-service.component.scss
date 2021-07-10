@@ -1,0 +1,14 @@
+#text-zone {
+  animation: bounce 0.7s ease infinite;
+}
+@keyframes bounce {
+  from {
+    top: 106px;
+  }
+  50% {
+    top: 86px;
+  }
+  to {
+    top: 106px;
+  }
+}

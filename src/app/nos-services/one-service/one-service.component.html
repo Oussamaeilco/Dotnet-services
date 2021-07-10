@@ -1,0 +1,17 @@
+<div class="row" style="padding: 15px">
+  <div class="col-2">
+    <img src="{{ link }}" alt="" style="height: 125px; width: 125px" />
+  </div>
+  <div class="col-8">
+    <p class="text-center" style="color: #cc2e72; font-size: 30px">
+      {{ desc }}
+    </p>
+  </div>
+</div>
+<div class="row" style="padding: 15px">
+  <div
+    class="col container bg-light text-zone border border-dark rounded"
+    style="padding: 25px"
+    [innerHTML]="detail"
+  ></div>
+</div>
