@@ -1,135 +1,182 @@
 <form [formGroup]="ctcForm" class="row g-3">
-    <div class="col">
-      <div class="mb-3 row form-group" style="padding: 25px">
-        <div class="col">
-          <input
-            type="text"
-            class="form-control"
-            id="nom"
-            placeholder="Nom"
-            formControlName="nom"
-            required
-          />
-        </div>
-        <div class="col">
-          <input
-            type="text"
-            class="form-control col"
-            id="prenom"
-            placeholder="Prénom"
-            formControlName="prenom"
-            required
-          />
-        </div>
-        <div class="invalid-feedback">Information manquante</div>
-      </div>
-      <div class="mb-3 row form-group" style="padding: 25px">
-        <div class="col">
-          <input
-            type="text"
-            class="form-control"
-            id="societe"
-            placeholder="Société"
-            formControlName="societe"
-            required
-          />
-          <div class="invalid-feedback">Information manquante</div>
-        </div>
-  
-        <div class="col">
-          <input
-            type="text"
-            class="form-control"
-            id="post"
-            placeholder="Votre Poste (Facultatif)"
-            formControlName="post"
-          />
+  <div class="col">
+    <div class="mb-3 row form-group" style="padding: 25px">
+      <div class="col">
+        <input
+          type="text"
+          class="form-control"
+          id="nom"
+          placeholder="Nom"
+          formControlName="nom"
+          [ngClass]="{
+            'border border-danger': v_nom
+          }"
+          required
+        />
+        <div *ngIf="v_nom">
+          <p class="text-danger">Veuillez entrer votre Nom.</p>
         </div>
       </div>
-      <div class="mb-3 row form-group" style="padding: 25px">
-        <div class="col">
-          <input
-            type="email"
-            class="form-control"
-            id="email"
-            placeholder="Email"
-            formControlName="email"
-            required
-          />
-        </div>
-        <div class="col">
-          <input
-            type="tel"
-            class="form-control"
-            id="telephone"
-            placeholder="Téléphone"
-            formControlName="telephone"
-            required
-          />
-        </div>
-      </div>
-      <div class="mb-3 row form-group" style="padding: 25px">
-        <div class="col">
-          <label for="intervention" class="form-label"
-            >Quel type d'intervention souhaitez vous ?
-          </label>
-          <br />
-          <select
-            class="form-select"
-            id="intervention"
-            formControlName="intervention"
-            required
-          >
-            <option selected disabled value="">Choisir...</option>
-            <option
-              value="Déploiement, masterisation et inventaire de parc informatique."
-            >
-              Déploiement, masterisation et inventaire de parc informatique.
-            </option>
-            <option
-              value="Installation, retrait logistique, récupération de matériels."
-            >
-              Installation, retrait logistique, récupération de matériels.
-            </option>
-            <option value="Gestion des tickets et du parc informatique.">
-              Gestion des tickets et du parc informatique.
-            </option>
-            <option value="Équipe de support téléphonique.">
-              Équipe de support téléphonique.
-            </option>
-            <option value="Prise de main à distance.">
-              Prise de main à distance.
-            </option>
-            <option value="Suivi et reporting.">Suivi et reporting.</option>
-            <option value="Gestion de projet.">Gestion de projet.</option>
-            <option value="Accompagnement SI.">Accompagnement SI.</option>
-            <option value="Service AMOA">Service AMOA</option>
-            <option value="Chèque digital région">Chèque digital région</option>
-            <option value="Autre">Autre</option>
-          </select>
-        </div>
-      </div>
-      <div class="mb-3 row form-group" style="padding: 25px">
-        <div class="col">
-          <label for="message" class="form-label">
-            Exprimer votre demande :
-          </label>
-          <textarea
-            class="form-control"
-            id="message"
-            placeholder="Votre message ici..."
-            formControlName="message"
-            required
-          ></textarea>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col d-flex justify-content-center">
-          <button type="submit" class="btn btn-primary" (click)="contact_us()">
-            Envoyer
-          </button>
+      <div class="col">
+        <input
+          type="text"
+          class="form-control col"
+          id="prenom"
+          placeholder="Prénom"
+          formControlName="prenom"
+          [ngClass]="{
+            'border border-danger': v_prenom
+          }"
+          required
+        />
+        <div *ngIf="v_prenom">
+          <p class="text-danger">Veuillez entrer votre Prénom.</p>
         </div>
       </div>
     </div>
-  </form>
-  
+    <div class="mb-3 row form-group" style="padding: 25px">
+      <div class="col">
+        <input
+          type="text"
+          class="form-control"
+          id="societe"
+          placeholder="Société"
+          formControlName="societe"
+          [ngClass]="{
+            'border border-danger': v_societe
+          }"
+          required
+        />
+        <div *ngIf="v_societe">
+          <p class="text-danger">Veuillez entrer votre Société.</p>
+        </div>
+      </div>
+
+      <div class="col">
+        <input
+          type="text"
+          class="form-control"
+          id="post"
+          placeholder="Votre Poste (Facultatif)"
+          formControlName="post"
+        />
+      </div>
+    </div>
+    <div class="mb-3 row form-group" style="padding: 25px">
+      <div class="col">
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="Email"
+          formControlName="email"
+          [ngClass]="{
+            'border border-danger': v_email || v_isemail
+          }"
+          required
+        />
+        <div *ngIf="v_email">
+          <p class="text-danger">Veuillez entrer votre Email.</p>
+        </div>
+        <div *ngIf="!v_email && v_isemail">
+          <p class="text-danger">Veuillez entrer un email valide.</p>
+        </div>
+      </div>
+      <div class="col">
+        <input
+          type="tel"
+          class="form-control"
+          id="telephone"
+          placeholder="Téléphone"
+          formControlName="telephone"
+          [ngClass]="{
+            'border border-danger': v_telephone || v_istelephone
+          }"
+          required
+        />
+        <div *ngIf="v_telephone">
+          <p class="text-danger">Veuillez entrer votre numéro de Téléphone.</p>
+        </div>
+        <div *ngIf="!v_telephone && v_istelephone">
+          <p class="text-danger">
+            Veuillez entrer un numéro de téléphone valide.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="mb-3 row form-group" style="padding: 25px">
+      <div class="col">
+        <label for="intervention" class="form-label"
+          >Quel type d'intervention souhaitez vous ?
+        </label>
+        <br />
+        <select
+          class="form-select"
+          id="intervention"
+          formControlName="intervention"
+          [ngClass]="{
+            'border border-danger': v_intervention
+          }"
+          required
+        >
+          <option selected disabled value="">Choisir...</option>
+          <option
+            value="Déploiement, masterisation et inventaire de parc informatique."
+          >
+            Déploiement, masterisation et inventaire de parc informatique.
+          </option>
+          <option
+            value="Installation, retrait logistique, récupération de matériels."
+          >
+            Installation, retrait logistique, récupération de matériels.
+          </option>
+          <option value="Gestion des tickets et du parc informatique.">
+            Gestion des tickets et du parc informatique.
+          </option>
+          <option value="Équipe de support téléphonique.">
+            Équipe de support téléphonique.
+          </option>
+          <option value="Prise de main à distance.">
+            Prise de main à distance.
+          </option>
+          <option value="Suivi et reporting.">Suivi et reporting.</option>
+          <option value="Gestion de projet.">Gestion de projet.</option>
+          <option value="Accompagnement SI.">Accompagnement SI.</option>
+          <option value="Service AMOA">Service AMOA</option>
+          <option value="Chèque digital région">Chèque digital région</option>
+          <option value="Autre">Autre</option>
+        </select>
+        <div *ngIf="v_intervention">
+          <p class="text-danger">Veuillez choisir une option.</p>
+        </div>
+      </div>
+    </div>
+    <div class="mb-3 row form-group" style="padding: 25px">
+      <div class="col">
+        <label for="message" class="form-label">
+          Exprimer votre demande :
+        </label>
+        <textarea
+          class="form-control"
+          id="message"
+          placeholder="Votre message ici..."
+          formControlName="message"
+          [ngClass]="{
+            'border border-danger': v_message
+          }"
+          required
+        ></textarea>
+        <div *ngIf="v_message">
+          <p class="text-danger">Entrez un message.</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary" (click)="contact_us()">
+          Envoyer
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
