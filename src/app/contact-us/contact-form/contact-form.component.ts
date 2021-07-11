@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-
+import { NodeMailerService } from 'src/app/services/node-mailer.service';
 @Component({
   selector: 'contact-form',
   templateUrl: './contact-form.component.html',
   styleUrls: ['./contact-form.component.scss'],
 })
 export class ContactFormComponent implements OnInit {
+  mailer: any;
   //Init formulaire
   ctcForm: FormGroup;
   //elements du formulaire
@@ -29,7 +30,10 @@ export class ContactFormComponent implements OnInit {
   v_intervention: boolean = false;
   v_message: boolean = false;
   //Init Formulaires
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private mailerService: NodeMailerService,
+    private formBuilder: FormBuilder
+  ) {
     this.ctcForm = this.formBuilder.group({
       nom: '',
       prenom: '',
@@ -40,6 +44,9 @@ export class ContactFormComponent implements OnInit {
       intervention: '',
       message: '',
     });
+  }
+  test() {
+    // this.mailerService.send_msg();
   }
   contact_us(): void {
     let valide: boolean = true;
