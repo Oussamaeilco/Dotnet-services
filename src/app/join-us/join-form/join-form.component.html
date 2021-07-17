@@ -1,0 +1,138 @@
+<form [formGroup]="joinForm" class="row g-3 join" style="margin: 25px">
+  <div class="col layer" style="margin: 50px">
+    <div class="mb-3 row form-group" style="padding: 15px">
+      <div class="col">
+        <input
+          type="text"
+          class="form-control"
+          id="nom"
+          placeholder="Nom"
+          formControlName="nom"
+          [ngClass]="{
+            'border border-danger': v_nom
+          }"
+          required
+        />
+        <div *ngIf="v_nom">
+          <p class="text-danger">Veuillez entrer votre Nom.</p>
+        </div>
+      </div>
+      <div class="col">
+        <input
+          type="text"
+          class="form-control col"
+          id="prenom"
+          placeholder="Prénom"
+          formControlName="prenom"
+          [ngClass]="{
+            'border border-danger': v_prenom
+          }"
+          required
+        />
+        <div *ngIf="v_prenom">
+          <p class="text-danger">Veuillez entrer votre Prénom.</p>
+        </div>
+      </div>
+    </div>
+    <div class="mb-3 row form-group" style="padding: 15px">
+      <div class="col">
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="Email"
+          formControlName="email"
+          [ngClass]="{
+            'border border-danger': v_email
+          }"
+          required
+        />
+        <div *ngIf="v_email">
+          <p class="text-danger">Veuillez entrer votre Email.</p>
+        </div>
+      </div>
+      <div class="col">
+        <input
+          type="tel"
+          class="form-control col"
+          id="telephone"
+          placeholder="Téléphone"
+          formControlName="telephone"
+          [ngClass]="{
+            'border border-danger': v_telephone
+          }"
+          required
+        />
+        <div *ngIf="v_telephone">
+          <p class="text-danger">Veuillez entrer votre Téléphone .</p>
+        </div>
+      </div>
+    </div>
+    <div class="mb-3 row form-group" style="padding: 15px">
+      <div class="col">
+        <input
+          type="date"
+          class="form-control"
+          id="date"
+          formControlName="date"
+          [ngClass]="{
+            'border border-danger': v_date
+          }"
+          required
+        />
+        <div *ngIf="v_date">
+          <p class="text-danger">Veuillez entrer votre date de naissance.</p>
+        </div>
+      </div>
+    </div>
+    <div class="mb-3 row form-group" style="padding: 15px">
+      <div class="col">
+        <textarea
+          type="motivation"
+          class="form-control"
+          id="motivation"
+          placeholder="Votre motivation (Facultatif)"
+          formControlName="motivation"
+        ></textarea>
+      </div>
+    </div>
+    <div class="mb-3 row form-group" style="padding: 15px">
+      <div class="col">
+        <input
+          type="file"
+          class="form-control"
+          id="cv"
+          formControlName="cv"
+          accept=".pdf"
+          placeholder="Votre CV ici"
+          [ngClass]="{
+            'border border-danger': v_cv
+          }"
+          (change)="cvFileInput($event)"
+          required
+        />
+        <div *ngIf="v_cv">
+          <p class="text-danger">Veuillez selectioner votre CV.</p>
+        </div>
+      </div>
+      <div class="col">
+        <input
+          type="file"
+          class="form-control"
+          id="lettre"
+          formControlName="lettre"
+          placeholder="Votre lettre de motivation (Facultatif)"
+          accept=".pdf"
+          (change)="ltFileInput($event)"
+        />
+      </div>
+    </div>
+    <div class="mb-3 row form-group" style="padding: 15px">
+      <div class="col d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary" (click)="join_us()">
+          Envoyer
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

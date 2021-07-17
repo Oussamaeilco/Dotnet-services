@@ -20,6 +20,10 @@ import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
 import { ValeurComponent } from './about-us/valeur/valeur.component';
 import { OneServiceComponent } from './nos-services/one-service/one-service.component';
 import { ContactFormComponent } from './contact-us/contact-form/contact-form.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MapComponent } from './contact-us/map/map.component';
+import { InfoContactComponent } from './contact-us/info-contact/info-contact.component';
+import { JoinFormComponent } from './join-us/join-form/join-form.component';
 
 @NgModule({
   declarations: [
@@ -40,8 +44,17 @@ import { ContactFormComponent } from './contact-us/contact-form/contact-form.com
     ValeurComponent,
     OneServiceComponent,
     ContactFormComponent,
+    MapComponent,
+    InfoContactComponent,
+    JoinFormComponent,
   ],
-  imports: [BrowserModule, FormsModule, AppRoutingModule,ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

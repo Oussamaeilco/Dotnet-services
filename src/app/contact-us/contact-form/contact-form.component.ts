@@ -1,13 +1,12 @@
+import { MailerService } from './../../services/mailer.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { NodeMailerService } from 'src/app/services/node-mailer.service';
 @Component({
   selector: 'contact-form',
   templateUrl: './contact-form.component.html',
   styleUrls: ['./contact-form.component.scss'],
 })
 export class ContactFormComponent implements OnInit {
-  mailer: any;
   //Init formulaire
   ctcForm: FormGroup;
   //elements du formulaire
@@ -31,7 +30,7 @@ export class ContactFormComponent implements OnInit {
   v_message: boolean = false;
   //Init Formulaires
   constructor(
-    private mailerService: NodeMailerService,
+    private mailerService: MailerService,
     private formBuilder: FormBuilder
   ) {
     this.ctcForm = this.formBuilder.group({
@@ -45,9 +44,7 @@ export class ContactFormComponent implements OnInit {
       message: '',
     });
   }
-  test() {
-    // this.mailerService.send_msg();
-  }
+
   contact_us(): void {
     let valide: boolean = true;
     //Teste des éléments
@@ -109,7 +106,27 @@ export class ContactFormComponent implements OnInit {
     } else this.v_message = false;
     //verification
     if (valide) {
-      alert('Boom goes the dynamite!!!');
+      this.message =
+        'Email:' +
+        this.email +
+        '<br>Tel:' +
+        this.telephone +
+        '<br>Soci&eacute;t&eacute;:' +
+        this.societe +
+        '<br>Poste:' +
+        this.post +
+        '<br>Intervention:' +
+        this.intervention +
+        '<br>' +
+        '-----------Message----------<br>' +
+        this.message;
+
+      this.mailerService.message = this.message;
+      this.mailerService.name = this.prenom + ' ' + this.nom;
+      this.mailerService.email = this.email;
+      this.mailerService.societe = this.societe;
+      //alert(this.mailerService.message);
+      this.mailerService.sendEmail();
     }
   }
   ngOnInit(): void {}

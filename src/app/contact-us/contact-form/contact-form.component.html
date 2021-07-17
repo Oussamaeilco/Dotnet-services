@@ -1,6 +1,6 @@
 <form [formGroup]="ctcForm" class="row g-3">
   <div class="col">
-    <div class="mb-3 row form-group" style="padding: 25px">
+    <div class="mb-3 row form-group" style="padding: 15px">
       <div class="col">
         <input
           type="text"
@@ -34,7 +34,7 @@
         </div>
       </div>
     </div>
-    <div class="mb-3 row form-group" style="padding: 25px">
+    <div class="mb-3 row form-group" style="padding: 15px">
       <div class="col">
         <input
           type="text"
@@ -62,7 +62,7 @@
         />
       </div>
     </div>
-    <div class="mb-3 row form-group" style="padding: 25px">
+    <div class="mb-3 row form-group" style="padding: 15px">
       <div class="col">
         <input
           type="email"
@@ -104,7 +104,7 @@
         </div>
       </div>
     </div>
-    <div class="mb-3 row form-group" style="padding: 25px">
+    <div class="mb-3 row form-group" style="padding: 15px">
       <div class="col">
         <label for="intervention" class="form-label"
           >Quel type d'intervention souhaitez vous ?
@@ -121,20 +121,22 @@
         >
           <option selected disabled value="">Choisir...</option>
           <option
-            value="Déploiement, masterisation et inventaire de parc informatique."
+            value="D&eacute;;ploiement, masterisation et inventaire de parc informatique."
           >
-            Déploiement, masterisation et inventaire de parc informatique.
+            D&eacute;ploiement, masterisation et inventaire de parc
+            informatique.
           </option>
           <option
-            value="Installation, retrait logistique, récupération de matériels."
+            value="Installation, retrait logistique, r&eacute;cup&eacute;ration de mat&eacute;riels."
           >
-            Installation, retrait logistique, récupération de matériels.
+            Installation, retrait logistique, r&eacute;cup&eacute;ration de
+            mat&eacute;riels.
           </option>
           <option value="Gestion des tickets et du parc informatique.">
             Gestion des tickets et du parc informatique.
           </option>
           <option value="Équipe de support téléphonique.">
-            Équipe de support téléphonique.
+            Équipe de support t&eacute;l&eacute;phonique.
           </option>
           <option value="Prise de main à distance.">
             Prise de main à distance.
@@ -143,7 +145,9 @@
           <option value="Gestion de projet.">Gestion de projet.</option>
           <option value="Accompagnement SI.">Accompagnement SI.</option>
           <option value="Service AMOA">Service AMOA</option>
-          <option value="Chèque digital région">Chèque digital région</option>
+          <option value="Ch&egrave;que digital r&eacute;gion">
+            Ch&egrave;que digital r&eacute;gion
+          </option>
           <option value="Autre">Autre</option>
         </select>
         <div *ngIf="v_intervention">
@@ -151,7 +155,7 @@
         </div>
       </div>
     </div>
-    <div class="mb-3 row form-group" style="padding: 25px">
+    <div class="mb-3 row form-group" style="padding: 15px">
       <div class="col">
         <label for="message" class="form-label">
           Exprimer votre demande :
@@ -175,9 +179,6 @@
       <div class="col d-flex justify-content-center">
         <button type="submit" class="btn btn-primary" (click)="contact_us()">
           Envoyer
-        </button>
-        <button type="submit" class="btn btn-primary" (click)="test()">
-          Test
         </button>
       </div>
     </div>
