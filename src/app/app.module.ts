@@ -24,6 +24,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { MapComponent } from './contact-us/map/map.component';
 import { InfoContactComponent } from './contact-us/info-contact/info-contact.component';
 import { JoinFormComponent } from './join-us/join-form/join-form.component';
+import { AdminComponent } from './admin/admin.component';
+import { LoginComponent } from './admin/login/login.component';
+import { UserPanelComponent } from './admin/user-panel/user-panel.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +50,9 @@ import { JoinFormComponent } from './join-us/join-form/join-form.component';
     MapComponent,
     InfoContactComponent,
     JoinFormComponent,
+    AdminComponent,
+    LoginComponent,
+    UserPanelComponent,
   ],
   imports: [
     BrowserModule,

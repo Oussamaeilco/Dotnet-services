@@ -1,3 +1,5 @@
+import { UserPanelComponent } from './admin/user-panel/user-panel.component';
+import { AdminComponent } from './admin/admin.component';
 import { JoinUsComponent } from './join-us/join-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { NosServicesComponent } from './nos-services/nos-services.component';
@@ -14,6 +16,8 @@ const routes: Routes = [
   { path: 'nos-services', component: NosServicesComponent },
   { path: 'contact-us', component: ContactUsComponent },
   { path: 'join-us', component: JoinUsComponent },
+  { path: 'admin_service', component: AdminComponent },
+  { path: 'admin_service/userPanel', component: UserPanelComponent },
 ];
 
 @NgModule({

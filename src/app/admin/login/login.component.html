@@ -1,0 +1,53 @@
+<div class="h2 text-center sous-titre">Connexion</div>
+<div class="d-flex justify-content-center">
+  <span class="line"></span>
+</div>
+<div class="row" style="padding: 15px">
+  <div class="col">
+    <form
+      [formGroup]="conForm"
+      class="col g-3"
+      style="padding: 50px; margin: 50px"
+    >
+      <div class="row" style="padding: 15px">
+        <input
+          type="email"
+          class="form-control"
+          id="user"
+          formControlName="user"
+          placeholder="Utilisateur"
+          [ngClass]="{
+            'border border-danger': v_user
+          }"
+          required
+        />
+        <div *ngIf="v_user">
+          <p class="text-danger">Veuillez entrer votre nom d'utilisateur.</p>
+        </div>
+      </div>
+      <div class="row" style="padding: 15px">
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          placeholder="Mot de passe"
+          formControlName="password"
+          [ngClass]="{
+            'border border-danger': v_password
+          }"
+          required
+        />
+        <div *ngIf="v_password">
+          <p class="text-danger">Veuillez entrer votre mot de passe.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col d-flex justify-content-center">
+          <button type="submit" class="btn btn-primary" (click)="connect()">
+            Envoyer
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
